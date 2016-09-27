@@ -5,6 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-Aqui home
+Hola {{$username}}
 </body>
 </html>
