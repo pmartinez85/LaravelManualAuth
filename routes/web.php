@@ -18,9 +18,12 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
-Route::get('/login', function () {
-    return view('auth.login');
-});
+Route::get('/login', 'LoginController@login');
+Route::get('/register', 'RegisterController@login');
+Route::get('/home', 'HomeController@login');
+
+
+
 Route::get('/register', function () {
     return view('auth.register');
 });
