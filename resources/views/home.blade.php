@@ -5,6 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-Hola {{$username}}
+Hola {{$user->name}}
 </body>
 </html>

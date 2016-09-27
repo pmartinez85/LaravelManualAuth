@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
+use App\User;
 
 
 class HomeController extends Controller
@@ -12,6 +12,9 @@ class HomeController extends Controller
     {
        // $data = ['username' => 'nommm'];
        // return view('home', $data);
-        return view('home')->with  ('username', 'amparo');
+
+        $user =User::find(1);
+        return view('auth.home')
+            ->withuser ($user);
     }
 }
