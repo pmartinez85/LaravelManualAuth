@@ -1,18 +1,16 @@
 <!doctype html>
 <html lang="en">
 @section('htmlheader')
-    @include('layouts.partial.htmlheader.blade.php')
+    @include('layouts.partials.htmlheader')
 @endsection
 <body>
 @yield('main-content')
-@section('footer')
-        @include('layouts.partial.footer.blade.php')
+@section('sidebar')
+        @include('layouts.partials.sidebar')
 @endsection
-
 @yield('main-content')
-
-@section('footer)
-        @include('layouts.partials.footer')
-@endsection
 </body>
+@section('footer')
+    @include('layouts.partials.footer')
+@endsection
 </html>
