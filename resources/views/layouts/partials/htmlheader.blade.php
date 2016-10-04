@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-Register form here!
+
 </body>
 </html>

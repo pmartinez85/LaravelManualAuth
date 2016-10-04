@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
@@ -12,16 +11,16 @@ class HomeController extends Controller
         //Passos controlador bàsic (glue/cola del model i vista):
         // 1) Aconseguir informació de l'usuari de la base de dades
         // 2) Mostrar vista home passant info del usuari
-        $user = User::find(1);
-        $user->name = "asdasd";
-        $pdo = new PDO('sqlite:/home/sergi/Code/laravelManualAuth/database/database.sqlite');
+        $pdo = new PDO('sqlite:/home/pedro/Code/laravelManualAuth/database/database.sqlite');
         $query = $pdo->prepare('SELECT * FROM users WHERE id=1');
         $query->execute();
         $row = $query->fetch();
         dd($row);
         $user = new \stdClass();
-        $user->name = "Sergi Tur";
+        $user->name = "Pedro";
+        $user->sn1 = "Martínez";
         return view('home')
             ->withUser($user);
+//        $user = User::find(1);
     }
 }
