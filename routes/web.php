@@ -23,7 +23,7 @@ Route::get('/register', 'RegisterController@register');
 Route::get('/home', 'HomeController@home');
 
 
-
-Route::get('/register', function () {
-    return view('auth.register');
-});
+//
+//Route::get('/register', function () {
+//    return view('auth.register');
+//});
