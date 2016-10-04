@@ -19,6 +19,8 @@ Route::get('/', function () {
 //    return view('home');
 //});
 
+Auth::loginUsingId(4);
+
 
 Route::get('/login', 'LoginController@login');
 

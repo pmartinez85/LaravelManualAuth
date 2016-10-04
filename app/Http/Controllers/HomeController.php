@@ -9,12 +9,12 @@ class HomeController extends Controller
 {
     public function __construct(){
 
-        $this-> $this->middleware('auth');
+        $this->middleware('auth');
 }
 
     public function home()
     {
-        $user = User::find(1);
+        $user = Auth::user();
         return view('home')
             ->withUser($user);
 
