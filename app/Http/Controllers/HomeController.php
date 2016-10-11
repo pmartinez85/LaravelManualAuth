@@ -39,9 +39,10 @@ class HomeController extends Controller
     }
 
     private function getUser(){
-
+            var_dump(json_decode('{"name" : "Pedro", "sn1" : "Martínez"}'));
         //Opcio 1 : Query string $_GET
-        return $_GET['user'];
+
+        return dd(json_decode($_GET['user']));
     }
 
 

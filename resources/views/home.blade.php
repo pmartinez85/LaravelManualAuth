@@ -5,5 +5,5 @@
 @endsection
 
 @section('main-content')
-    Hola {{ $user }}
+    Hola {{ $user->name }} {{ $sn1->sn1 }}
 @endsection
