@@ -14,7 +14,7 @@ class HomeController extends Controller
 
     public function home()
     {
-            $this->setUserCokkie();
+            $this->setUserCookie();
             //ESTAT SESSIO
         if ($this->userIsAuthenticated()){
             $user = $this->getUser();
@@ -26,7 +26,7 @@ class HomeController extends Controller
     }
 
 
-    private function setUserCokkie(){
+    private function setUserCookie(){
 
         $user = User::findOrfail(1);
         setcookie('user',$user->token);
