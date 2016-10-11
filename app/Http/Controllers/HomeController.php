@@ -24,7 +24,6 @@ class HomeController extends Controller
     }else {
         return redirect('login');
         }
-       // "{name : 'Pedro'}"
     }
 
 
@@ -39,10 +38,10 @@ class HomeController extends Controller
     }
 
     private function getUser(){
-            var_dump(json_decode('{"name" : "Pedro", "sn1" : "Martínez"}'));
-        //Opcio 1 : Query string $_GET
+        dd(Hash::make(1));
+        $id = $_GET['user'];
+        return User::findOrFail($id);
 
-        return dd(json_decode($_GET['user']));
     }
 
 
