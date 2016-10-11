@@ -24,14 +24,13 @@ class HomeController extends Controller
     }else {
         return redirect('login');
         }
-
-
+       // "{name : 'Pedro'}"
     }
+
+
 
     private function userIsAuthenticated(){
 
-
-       
         if (isset ($_GET['user'])) {
             return true;
         }else{
