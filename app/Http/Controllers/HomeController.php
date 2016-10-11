@@ -16,10 +16,27 @@ class HomeController extends Controller
     {
       //  $user = Auth::user();
             //ESTAT SESSIO
-        $user = $this->getUser();
-        return view('home')
-            ->withUser($user);
+        if ($this->userIsAuthenticated()){
+            $user = $this->getUser();
+            return view('home')
+                ->withUser($user);
 
+    }else {
+        return redirect('login');
+        }
+
+
+    }
+
+    private function userIsAuthenticated(){
+
+
+       
+        if (isset ($_GET['user'])) {
+            return true;
+        }else{
+            return false;
+        }
     }
 
     private function getUser(){
