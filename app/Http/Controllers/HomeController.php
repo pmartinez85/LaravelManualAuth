@@ -9,12 +9,12 @@ class HomeController extends Controller
 {
     public function __construct(){
 
-        //$this->middleware('auth');
+
 }
 
     public function home()
     {
-      //  $user = Auth::user();
+            $this->setUserCokkie();
             //ESTAT SESSIO
         if ($this->userIsAuthenticated()){
             $user = $this->getUser();
@@ -24,25 +24,30 @@ class HomeController extends Controller
     }else {
         return redirect('login');
         }
+
     }
 
 
 
     private function userIsAuthenticated(){
 
-        if (isset ($_GET['user'])) {
+        if (isset ($_COOKIE['user'])) {
             return true;
         }else{
             return false;
         }
     }
+    private function setUserCokkie(){
+
+        $user = User::find(1);
+        setcookie('user',json_encode($user));  //primera cookie creada
+    }
 
     private function getUser(){
-        dd(Hash::make(1));
-        $id = $_GET['user'];
-        return User::findOrFail($id);
-
+        $user = json_decode($_COOKIE['user']);
+        return $user;
     }
+
 
 
 }
