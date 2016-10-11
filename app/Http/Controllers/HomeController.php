@@ -21,33 +21,24 @@ class HomeController extends Controller
             return view('home')
                 ->withUser($user);
 
-    }else {
-        return redirect('login');
-        }
+    }else{return redirect('login');}
 
     }
 
 
-
-    private function userIsAuthenticated(){
-
-        if (isset ($_COOKIE['user'])) {
-            return true;
-        }else{
-            return false;
-        }
-    }
     private function setUserCokkie(){
 
-        $user = User::find(1);
-        setcookie('user',json_encode($user));  //primera cookie creada
+        $user = User::findOrfail(1);
+        setcookie('user',$user->token);
     }
 
     private function getUser(){
-        $user = json_decode($_COOKIE['user']);
-        return $user;
-    }
 
+        $token= $_COOKIE['user'];
+        return User::where(["token" => $token])->first();
+        }
+
+    private function userIsAuthenticated(){return isset ($_COOKIE['user']) ? true : false ;}
 
 
 }
