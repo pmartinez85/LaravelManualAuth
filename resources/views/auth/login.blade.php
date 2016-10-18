@@ -12,17 +12,11 @@
 Login form here!
 <form>
     {{csrf_field()}}
-<div class="row">
-    <div class="col-xs-2">
-        <input type="text" class="form-control" placeholder=".col-xs-2">
-    </div>
-    <div class="col-xs-3">
-        <input type="text" class="form-control" placeholder=".col-xs-3">
-    </div>
-    <div class="col-xs-4">
-        <input type="text" class="form-control" placeholder=".col-xs-4">
-    </div>
-</div>
+    Nom: <input type="text" name="nom" value="" />
+    Password. <input type="password" name="password" />
+
+
+    <input type="submit" value="Enviar" />
     </form>
 </body>
 </html>

@@ -10,21 +10,31 @@ class LoginTest extends TestCase
     public function testLoginPageShowsLoginForm()
     {
         $this->visit('/login')
-            ->see('usuari')
-            ->see('password');
+            ->see('Usuari')
+            ->see('Password');
     }
 
     public function CreateTestUser()
     {
-        return factory(App\user::class,1)->create();
+        return factory(App\User::class,1)->create(['password'=> Hash::make('asdasd')]);
     }
     public function testLoginPostWithUserOk()
     {
+        $user = $this->createrestUser();
         $this->visit('/login')
-            ->type('user', $user->name)
-            ->type('password', $user->password)
-                //->check('terms')
+            ->type($user->email, 'email')
+            ->type('asdasd', 'password')
             ->press('login')
             ->seePageIs('/home');
+    }
+    public function testLoginPostWithUserNotOk()
+    {
+
+        $this->visit('/login')
+            ->type('adadad@fasd.com', 'email')
+            ->type('asdasd', 'password')
+            //->check('terms')
+            ->press('login')
+            ->seePageIs('Username not exist');
     }
 }

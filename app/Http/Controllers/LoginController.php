@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\user;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class LoginController extends Controller
 {
@@ -14,10 +16,26 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
-    public function login(){
+    public function login(Request $request){
+        try{
+            $user = User::where(
+                ["email"=> $request->input('email')])->firstOrFail();
+        } catch (\Exception $e){
+            return redirect ('login');
+        }
 
- 
-        echo "login aquiiii";
+
+
+
+        dd($user);
+
+        if($user->password ==hash_make($request->input('password'))){
+            return input ('home');
+
+
+        }else{
+            return input ('email');
+        }
     }
 
 
