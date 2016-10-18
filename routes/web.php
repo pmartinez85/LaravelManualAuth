@@ -23,6 +23,8 @@ Auth::loginUsingId(4);
 
 
 Route::get('/login', 'LoginController@login');
+Route::get('/login', 'LoginController@showLoginForm');
+Route::post('/login', 'LoginController@postlogin');
 
 
 //Route::get('/register', 'RegisterController@register');

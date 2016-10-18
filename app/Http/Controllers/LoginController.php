@@ -10,8 +10,13 @@ class LoginController extends Controller
     /**
      * @return string
      */
-    public function login()
+    public function showLoginForm()
     {
         return view('auth.login');
     }
+    public function login(){
+        echo "login aquiiii";
+    }
+
+
 }
