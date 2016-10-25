@@ -14,6 +14,14 @@ interface Guard
 
     public function check();
 
+    public function validate(array $credentials){
 
+        return $this->provider->validate($credentials);
+    }
+
+    public function setUser($user){
+
+        //TODO: implement setUser() Method.
+    }
 
 }
