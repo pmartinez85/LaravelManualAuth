@@ -9,7 +9,7 @@
 namespace App\ManualAuth;
 
 
-class ManualGuard implements Guard
+class CookieGuard implements Guard
 {
 
     public function check()

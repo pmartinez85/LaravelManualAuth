@@ -21,11 +21,25 @@ Route::get('/', function () {
 //PAS 1 Middleware. com protegir pàgines?
 
 
+//Container
+
+//
+//$this->app->bind(
+//    \App\ManualAuth\Guard::class, \App\ManualAuth\ParameterGuard::class
+//);
+//
+$this->app->bind(
+    \App\ManualAuth\Guard::class, \App\ManualAuth\CookieGuard::class
+);
+
+//    $user = User::findOrfail(1);
+//    setcookie('user',$user->token);
+
+
+
 
 Route::group(['middleware' => ['manualauth']], function () {
 
-    $user = User::findOrfail(1);
-    setcookie('user',$user->token);
 
     Route::get('/tasques', function () {
         return view('tasques');
@@ -36,32 +50,3 @@ Route::group(['middleware' => ['manualauth']], function () {
 Route::get('/login', function () {
     return view('login');
 });
-
-
-
-
-
-
-//Route::get('/home', function () {
-//    return view('home');
-//});
-
-//Auth::loginUsingId(4);
-//
-//
-//Route::get('/login', 'LoginController@login');
-//Route::get('/login', 'LoginController@showLoginForm');
-//Route::post('/login', 'LoginController@postlogin');
-
-
-//Route::get('/register', 'RegisterController@register');
-
-
-//Route::get('/home', 'HomeController@home');
-
-
-//
-//Route::get('/register', function () {
-//    return view('auth.register');
-//});
-

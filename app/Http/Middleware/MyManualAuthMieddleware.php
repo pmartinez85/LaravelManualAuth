@@ -28,7 +28,7 @@ class MyManualAuthMieddleware
      */
     public function handle($request, Closure $next)
     {
-       
+
         if ($this->manualGuard->check()){
             return $next($request);
 

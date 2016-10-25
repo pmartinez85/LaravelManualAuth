@@ -11,7 +11,7 @@ namespace App\ManualAuth;
 
 use Illuminate\Http\Request;
 
-class ManualByIdParameter implements Guard
+class ParameterGuard implements Guard
 {
 
     /**
