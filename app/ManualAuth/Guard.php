@@ -14,6 +14,6 @@ interface Guard
 
     public function check();
 
-    
+
 
 }

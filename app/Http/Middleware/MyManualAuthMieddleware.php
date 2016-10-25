@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-use App\ManualAuth\ManualByIdParameter;
-use App\ManualAuth\ManualGuard;
+use App\ManualAuth\Guard;
 
 use Closure;
 
@@ -29,7 +28,7 @@ class MyManualAuthMieddleware
      */
     public function handle($request, Closure $next)
     {
-       // $ManualGuard = new ManualGuard();
+       
         if ($this->manualGuard->check()){
             return $next($request);
 
