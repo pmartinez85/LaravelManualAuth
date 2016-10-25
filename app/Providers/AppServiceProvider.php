@@ -13,7 +13,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //PAS 1 Middleware. com protegir pàgines?
+
+
+//Container
+
+//
+//$this->app->bind(
+//    \App\ManualAuth\Guard::class, \App\ManualAuth\ParameterGuard::class
+//);
+//
+
+$this->app->bind(
+    \App\ManualAuth\Guard::class, \App\ManualAuth\CookieGuard::class
+);
+
     }
 
     /**

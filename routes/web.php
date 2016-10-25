@@ -17,26 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-//PAS 1 Middleware. com protegir pàgines?
-
-
-//Container
-
-//
-//$this->app->bind(
-//    \App\ManualAuth\Guard::class, \App\ManualAuth\ParameterGuard::class
-//);
-//
-$this->app->bind(
-    \App\ManualAuth\Guard::class, \App\ManualAuth\CookieGuard::class
-);
-
-//    $user = User::findOrfail(1);
-//    setcookie('user',$user->token);
-
-
-
+$user = User::findOrfail(1);
+setcookie('user',$user->token);
 
 Route::group(['middleware' => ['manualauth']], function () {
 
