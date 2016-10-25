@@ -11,6 +11,8 @@
 |
 */
 
+use App\User;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,13 +24,18 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['manualauth']], function () {
 
+    $user = User::findOrfail(1);
+    setcookie('user',$user->token);
+
     Route::get('/tasques', function () {
         return view('tasques');
     });
 });
 
 
-
+Route::get('/login', function () {
+    return view('login');
+});
 
 
 

@@ -12,8 +12,8 @@ namespace App\ManualAuth;
 class ManualGuard
 {
 
-    public static function check()
+    public function check()
     {
-        return true;
+        return isset ($_COOKIE['user']) ? true : false ;
     }
 }

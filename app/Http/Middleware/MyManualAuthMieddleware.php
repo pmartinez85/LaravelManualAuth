@@ -21,7 +21,6 @@ class MyManualAuthMieddleware
             return $next($request);
 
         }
-        dd("BBB");
         return redirect('login');
     }
 
