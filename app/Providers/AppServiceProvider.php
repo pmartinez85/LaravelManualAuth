@@ -18,11 +18,11 @@ class AppServiceProvider extends ServiceProvider
 
 //Container
 
-//
-//$this->app->bind(
-//    \App\ManualAuth\Guard::class, \App\ManualAuth\ParameterGuard::class
-//);
-//
+
+$this->app->bind(
+    \App\ManualAuth\Guard::class, \App\ManualAuth\ParameterGuard::class
+);
+
 
 $this->app->bind(
     \App\ManualAuth\Guard::class, \App\ManualAuth\CookieGuard::class

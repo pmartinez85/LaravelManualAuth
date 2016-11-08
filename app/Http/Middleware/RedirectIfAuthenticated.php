@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 class RedirectIfAuthenticated
 {
     /**
+     * RedirectIfAuthenticated constructor.
+     */
+
+    /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request

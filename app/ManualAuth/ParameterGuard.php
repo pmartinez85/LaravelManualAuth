@@ -17,6 +17,13 @@ class ParameterGuard implements Guard
     /**
      * ManualByIdParameter constructor.
      */
+    protected $request;
+
+    /**
+     * ParameterGuard constructor.
+     * @param $request
+     */
+
     public function __construct(Request $request)
     {
         $this->request = $request;
@@ -29,5 +36,14 @@ class ParameterGuard implements Guard
 
         }
         return false;
+    }
+
+    public function validate(array $credentials)
+    {
+        return true;
+    }
+    public function setUser($user)
+    {
+        // TODO: Implement setUser() method.
     }
 }
