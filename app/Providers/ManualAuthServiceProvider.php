@@ -4,30 +4,24 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class ManualAuthServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap any application services.
+     * Bootstrap the application services.
      *
      * @return void
      */
     public function boot()
     {
-        //PAS 1 Middleware. com protegir pàgines?
-
-
-//Container
-
-
-
-$this->app->bind(
+        $this->app->bind(
     \App\ManualAuth\Guard::class, config('manualAuth.guard')
 );
+
 
     }
 
     /**
-     * Register any application services.
+     * Register the application services.
      *
      * @return void
      */
