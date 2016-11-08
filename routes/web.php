@@ -20,8 +20,11 @@ Route::group(['middleware' => ['manualauth']], function () {
     Route::get('/tasques', function () {
         return view('tasques');
     });
+    Route::get('home', function () {
+        return "Home!";
+    });
 });
 
 
-Route::post('/login', 'LoginController@login');
 Route::get('/login', 'LoginController@showLoginForm');
+Route::post('/login', 'LoginController@login');

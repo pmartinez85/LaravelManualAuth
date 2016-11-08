@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\ManualAuth\Guard;
+use App\ManualAuth\UserProviders\UserProvider;
 use Illuminate\Support\ServiceProvider;
 
 class ManualAuthServiceProvider extends ServiceProvider
@@ -14,8 +16,11 @@ class ManualAuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind(
-    \App\ManualAuth\Guard::class, config('manualAuth.guard')
+    Guard::class, config('manualauth.guard')
 );
+        $this->app->bind(
+            UserProvider::class, config('manualauth.user')
+        );
 
 
     }

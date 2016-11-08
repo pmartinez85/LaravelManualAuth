@@ -3,90 +3,74 @@
 namespace App\Http\Controllers;
 
 use App\ManualAuth\Guard;
+use App\ManualAuth\UserProviders\UserProvider;
+//use App\User;
+//use Hash;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\user;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Session;
+
+/**
+ * Class LoginController
+ * @package App\Http\Controllers
+ */
 
 class LoginController extends Controller
 {
+    protected $guard;
+    protected $userprovider;
     /**
      * LoginController constructor.
+     * @param $guard
+     * @param $userprovider
      */
-    protected $guard;
-
-    public function __construct(Guard $guard)
+    public function __construct(Guard $guard, UserProvider $userprovider)
     {
+        $this->guard = $guard;
+        $this->userprovider = $userprovider;
     }
-
-    /**
-     * @return string
-     */
-
-
     public function showLoginForm()
     {
         return view('auth.login');
     }
-
-    public function login(Request $request){
-
+    // DEPENDENCY INJECTION
+    public function login(Request $request)
+    {
         $this->validateLogin($request);
-        $credentials = $request->only(['email', 'password']);
-        if($this->guard->validate($credentials)){
 
-            //Ok TODO
-            $this->guard->setUser();
+        $credentials = $request->only(['email','password']);
+
+        if ($this->guard->validate($credentials)) {
+            $this->guard->setUser($this->userprovider->getUserByCredentials($credentials));
             return redirect('home');
         }
+        Session::flash('errors', collect(["Login incorrecte"]));
         return redirect('login');
-
-        //Validate login form ->Required fields, response with errors, etc
-
-        //Check too many attemps TODO
-
-        //Delegar intent de autenticació a aulgu altre i tenir en compte
-        //que poden haber diferents users providers, LDAP, SQL, AD
-        //Bifuquem codi...Ok o no Ok
-        //Ok -->  CookieGuard o ParameterGuard o que??
-        //Not OK-->Login with errors
-
-
     }
 
-    private function validateLogin()
+    /**
+     * Get the needed authorization credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function credentials(Request $request)
+    {
+        return $request->only($this->username(), 'password');
+    }
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return $this->username;
+    }
+    private function validateLogin($request)
     {
         $this->validate($request, [
-            'email' => 'email|required',
-            'password' => 'required',
+            'email' => 'email|required', 'password' => 'required',
         ]);
-
     }
-
-
-
-//
-//    public function login(Request $request){
-//        try{
-//            $user = User::where(
-//                ["email"=> $request->input('email')])->firstOrFail();
-//        } catch (\Exception $e){
-//            return redirect ('login');
-//        }
-//
-
-//
-//
-//        dd($user);
-//
-//        if($user->password ==hash_make($request->input('password'))){
-//            return input ('home');
-//
-//
-//        }else{
-//            return input ('email');
-//        }
-//    }
-//
-//
 }

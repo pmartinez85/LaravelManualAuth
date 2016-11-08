@@ -1,16 +1,19 @@
 <?php
+
 namespace App\ManualAuth;
+
+use App\ManualAuth\UserProviders\UserProvider;
 class CookieGuard implements Guard
 {
     protected $provider;
-//    /**
-//     * CookieGuard constructor.
-//     * @param $provider
-//     */
-//    public function __construct(UserProvider $provider)
-//    {
-//        $this->provider = $provider;
-//    }
+    /**
+     * CookieGuard constructor.
+     * @param $provider
+     */
+    public function __construct(UserProvider $provider)
+    {
+        $this->provider = $provider;
+    }
     public function check()
     {
         return isset($_COOKIE['user']) ? true : false;
@@ -21,6 +24,6 @@ class CookieGuard implements Guard
     }
     public function setUser($user)
     {
-        // TODO: Implement setUser() method.
+        setcookie('user', $user->token);
     }
 }
