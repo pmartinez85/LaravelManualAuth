@@ -11,28 +11,17 @@
 |
 */
 
-use App\User;
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-$user = User::findOrfail(1);
-setcookie('user',$user->token);
 
 Route::group(['middleware' => ['manualauth']], function () {
-
-
     Route::get('/tasques', function () {
         return view('tasques');
     });
 });
 
 
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/login', 'LoginController@login');
+Route::post('/login', 'LoginController@login');
 Route::get('/login', 'LoginController@showLoginForm');
-Route::post('/login', 'LoginController@postlogin');
