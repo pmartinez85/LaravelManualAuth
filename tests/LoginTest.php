@@ -1,12 +1,11 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class LoginTest extends TestCase
 {
-  use DatabaseMigrations;
+    use DatabaseMigrations;
+
     public function testLoginPageShowsLoginForm()
     {
         $this->visit('/login')
@@ -16,8 +15,9 @@ class LoginTest extends TestCase
 
     public function CreateTestUser()
     {
-        return factory(App\User::class,1)->create(['password'=> Hash::make('asdasd')]);
+        return factory(App\User::class, 1)->create(['password' => Hash::make('asdasd')]);
     }
+
     public function testLoginPostWithUserOk()
     {
         $user = $this->createrestUser();
@@ -27,9 +27,9 @@ class LoginTest extends TestCase
             ->press('login')
             ->seePageIs('/home');
     }
+
     public function testLoginPostWithUserNotOk()
     {
-
         $this->visit('/login')
             ->type('adadad@fasd.com', 'email')
             ->type('asdasd', 'password')
