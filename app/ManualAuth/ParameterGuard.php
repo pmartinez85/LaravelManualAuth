@@ -3,17 +3,14 @@
  * Created by PhpStorm.
  * User: pedro
  * Date: 25/10/16
- * Time: 20:02
+ * Time: 20:02.
  */
-
 namespace App\ManualAuth;
-
 
 use Illuminate\Http\Request;
 
 class ParameterGuard implements Guard
 {
-
     /**
      * ManualByIdParameter constructor.
      */
@@ -21,9 +18,9 @@ class ParameterGuard implements Guard
 
     /**
      * ParameterGuard constructor.
+     *
      * @param $request
      */
-
     public function __construct(Request $request)
     {
         $this->request = $request;
@@ -31,10 +28,10 @@ class ParameterGuard implements Guard
 
     public function check()
     {
-        if ($this->request->has('id')){
+        if ($this->request->has('id')) {
             return true;
-
         }
+
         return false;
     }
 
@@ -42,6 +39,7 @@ class ParameterGuard implements Guard
     {
         return true;
     }
+
     public function setUser($user)
     {
         // TODO: Implement setUser() method.
