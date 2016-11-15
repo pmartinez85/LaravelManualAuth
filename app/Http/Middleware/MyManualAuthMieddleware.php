@@ -5,6 +5,10 @@ use App\ManualAuth\Guard;
 
 use Closure;
 
+/**
+ * Class MyManualAuthMieddleware
+ * @package App\Http\Middleware
+ */
 class MyManualAuthMieddleware
 {
 

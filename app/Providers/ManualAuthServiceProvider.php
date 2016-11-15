@@ -6,6 +6,10 @@ use App\ManualAuth\Guard;
 use App\ManualAuth\UserProviders\UserProvider;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class ManualAuthServiceProvider
+ * @package App\Providers
+ */
 class ManualAuthServiceProvider extends ServiceProvider
 {
     /**
