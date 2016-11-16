@@ -17,7 +17,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+<<<<<<< HEAD
         //borrat el container
+=======
+        //PAS 1 Middleware. com protegir pàgines?
+
+
+//Container
+
+
+
+$this->app->bind(
+    \App\ManualAuth\Guard::class, config('manualAuth.guard')
+);
+>>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
     }
 
 

@@ -25,8 +25,6 @@ class ManualAuthServiceProvider extends ServiceProvider
         $this->app->bind(
             UserProvider::class, config('manualauth.user')
         );
-
-
     }
 
     /**

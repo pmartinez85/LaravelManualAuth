@@ -21,7 +21,7 @@ Route::group(['middleware' => ['manualauth']], function () {
         return view('tasques');
     });
     Route::get('home', function () {
-        return "Home!";
+        return 'Home!';
     });
 });
 

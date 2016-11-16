@@ -7,22 +7,23 @@ use App\ManualAuth\UserProviders\UserProvider;
 //use App\User;
 //use Hash;
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use Session;
 
 /**
- * Class LoginController
- * @package App\Http\Controllers
+ * Class LoginController.
  */
-
 class LoginController extends Controller
 {
     protected $guard;
     protected $userprovider;
+<<<<<<< HEAD
     protected $username;
+=======
+>>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
 
     /**
      * LoginController constructor.
+     *
      * @param $guard
      * @param $userprovider
      */
@@ -32,13 +33,17 @@ class LoginController extends Controller
         $this->userprovider = $userprovider;
     }
 
+<<<<<<< HEAD
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+=======
+>>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
     public function showLoginForm()
     {
         return view('auth.login');
     }
+
     // DEPENDENCY INJECTION
 
     /**
@@ -49,26 +54,30 @@ class LoginController extends Controller
     {
         $this->validateLogin($request);
 
-        $credentials = $request->only(['email','password']);
+        $credentials = $request->only(['email', 'password']);
 
         if ($this->guard->validate($credentials)) {
             $this->guard->setUser($this->userprovider->getUserByCredentials($credentials));
+
             return redirect('home');
         }
-        Session::flash('errors', collect(["Login incorrecte"]));
+        Session::flash('errors', collect(['Login incorrecte']));
+
         return redirect('login');
     }
 
     /**
      * Get the needed authorization credentials from the request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     protected function credentials(Request $request)
     {
         return $request->only($this->username(), 'password');
     }
+
     /**
      * Get the login username to be used by the controller.
      *
@@ -79,10 +88,13 @@ class LoginController extends Controller
         return $this->username;
     }
 
+<<<<<<< HEAD
 
     /**
      * @param $request
      */
+=======
+>>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
     private function validateLogin($request)
     {
         $this->validate($request, [

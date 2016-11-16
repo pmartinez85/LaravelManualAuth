@@ -3,11 +3,9 @@
  * Created by PhpStorm.
  * User: pedro
  * Date: 8/11/16
- * Time: 20:20
+ * Time: 20:20.
  */
-
 namespace App\ManualAuth\UserProviders;
-
 
 use App\User;
 use Hash;
@@ -18,11 +16,14 @@ use Hash;
  */
 class EloquentUserProvider implements UserProvider
 {
+<<<<<<< HEAD
 
     /**
      * @param array $credentials
      * @return bool
      */
+=======
+>>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
     public function validate(array $credentials)
     {
         $user = $this->getUserByCredentials($credentials);
@@ -32,6 +33,7 @@ class EloquentUserProvider implements UserProvider
         }
 
         //SALTS
+<<<<<<< HEAD
         if (Hash::check($credentials['password'], $user->password))
         {return true;
         } else {return false;}
@@ -41,15 +43,25 @@ class EloquentUserProvider implements UserProvider
      * @param array $credentials
      * @return bool
      */
+=======
+        if (Hash::check($credentials['password'], $user->password)) {
+            return true;
+        }
+
+        return false;
+    }
+
+>>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
     public function getUserByCredentials(array $credentials)
     {
         try {
             return User::where(
-                ["email" => $credentials['email']])->firstOrFail();
+                ['email' => $credentials['email']])->firstOrFail();
         } catch (\Exception $e) {
             return false;
         }
     }
+<<<<<<< HEAD
 
     /**
      * @param array $credentials
@@ -67,3 +79,6 @@ class EloquentUserProvider implements UserProvider
     }
 
 }
+=======
+}
+>>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
