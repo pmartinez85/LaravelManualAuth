@@ -7,14 +7,13 @@
  */
 namespace App\ManualAuth;
 
-<<<<<<< HEAD
+
 
 /**
  * Interface Guard
  * @package App\ManualAuth
  */
-=======
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
+
 interface Guard
 {
     public function check();

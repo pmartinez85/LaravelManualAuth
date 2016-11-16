@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
+
 use App\ManualAuth\UserProviders\UserProvider;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -11,8 +11,7 @@ use Illuminate\Http\Request;
  * Class RegisterController
  * @package App\Http\Controllers
  */
-=======
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
+
 class RegisterController extends Controller
 {
     /**
@@ -37,7 +36,7 @@ class RegisterController extends Controller
     {
         return view('auth.register');
     }
-<<<<<<< HEAD
+
 
     /**
      * @param Request $request
@@ -59,6 +58,4 @@ class RegisterController extends Controller
         ]);
     }
 }
-=======
-}
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
+

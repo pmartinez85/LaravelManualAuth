@@ -16,16 +16,16 @@ use Hash;
  */
 class EloquentUserProvider implements UserProvider
 {
-<<<<<<< HEAD
+    protected $password;
 
     /**
      * @param array $credentials
      * @return bool
      */
-=======
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
+
     public function validate(array $credentials)
     {
+
         $user = $this->getUserByCredentials($credentials);
 
         if (!$user) {
@@ -33,25 +33,20 @@ class EloquentUserProvider implements UserProvider
         }
 
         //SALTS
-<<<<<<< HEAD
-        if (Hash::check($credentials['password'], $user->password))
-        {return true;
-        } else {return false;}
+
+        if (Hash::check($credentials['password'], $user->password)) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
 
     /**
      * @param array $credentials
      * @return bool
      */
-=======
-        if (Hash::check($credentials['password'], $user->password)) {
-            return true;
-        }
 
-        return false;
-    }
-
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
     public function getUserByCredentials(array $credentials)
     {
         try {
@@ -61,7 +56,7 @@ class EloquentUserProvider implements UserProvider
             return false;
         }
     }
-<<<<<<< HEAD
+
 
     /**
      * @param array $credentials
@@ -79,6 +74,3 @@ class EloquentUserProvider implements UserProvider
     }
 
 }
-=======
-}
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383

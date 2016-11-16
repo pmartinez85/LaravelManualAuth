@@ -16,10 +16,9 @@ class LoginController extends Controller
 {
     protected $guard;
     protected $userprovider;
-<<<<<<< HEAD
+
     protected $username;
-=======
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
+
 
     /**
      * LoginController constructor.
@@ -33,12 +32,11 @@ class LoginController extends Controller
         $this->userprovider = $userprovider;
     }
 
-<<<<<<< HEAD
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-=======
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
+
     public function showLoginForm()
     {
         return view('auth.login');
@@ -88,13 +86,10 @@ class LoginController extends Controller
         return $this->username;
     }
 
-<<<<<<< HEAD
-
     /**
      * @param $request
      */
-=======
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
+
     private function validateLogin($request)
     {
         $this->validate($request, [

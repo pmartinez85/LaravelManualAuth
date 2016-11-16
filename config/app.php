@@ -186,15 +186,15 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-<<<<<<< HEAD
+
         #llum_providers
-=======
+
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         //llum_providers
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
+
 
     ],
 
@@ -250,13 +250,13 @@ return [
          * See: https://github.com/acacha/llum
          */
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-<<<<<<< HEAD
+
         #llum_aliases
-=======
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
+//        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+//        'Debugbar' => Barryvdh\Debugbar\Facade::class,
         //llum_aliases
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
+
 
     ],
 

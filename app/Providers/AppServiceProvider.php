@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\ManualAuth\Guard;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -17,9 +18,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-<<<<<<< HEAD
+
         //borrat el container
-=======
+
         //PAS 1 Middleware. com protegir pàgines?
 
 
@@ -28,9 +29,8 @@ class AppServiceProvider extends ServiceProvider
 
 
 $this->app->bind(
-    \App\ManualAuth\Guard::class, config('manualAuth.guard')
+    Guard::class, config('manualAuth.guard')
 );
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
     }
 
 

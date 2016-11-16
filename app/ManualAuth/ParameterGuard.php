@@ -51,20 +51,16 @@ class ParameterGuard implements Guard
         return true;
     }
 
-<<<<<<< HEAD
     /**
      * @param $user
      * @return mixed|void
      * @internal param $user
      */
     public function setUser($user)  //dades provinents del formulari
-=======
-    public function setUser($user)
->>>>>>> a6bc5f624da7a85b36ceb775d362a9dabd467383
     {
        //TODO mètode per definir usuari, necessitem diferents paràmetres...
 
-
+        return true; //todo momentani!
 
     }
 }
