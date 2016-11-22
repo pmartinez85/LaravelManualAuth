@@ -24,7 +24,11 @@ Route::group(['middleware' => ['manualauth']], function () {
         return 'Home!';
     });
 });
-
+Route::get('/login', function () {
+    return view('login');
+});
 
 Route::get('/login', 'LoginController@showLoginForm');
 Route::post('/login', 'LoginController@login');
++Route::get('/register', 'RegisterController@showRegisterForm');
++Route::post('/register', 'RegisterController@register');
