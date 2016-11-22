@@ -9,14 +9,34 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-Login form here!
-<form>
-    {{csrf_field()}}
-    Nom: <input type="text" name="nom" value="" />
-    Password. <input type="password" name="password" />
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form action="/login" method="post">
+            {{csrf_field()}}
+            <div class="form-group">
+                Email: <input type="text" name="email" id="">
+            </div>
+            <div class="form-group">
+                Password: <input type="text" name="password" id="">
+            </div>
+            <div class="row text-center">
+                <input type="submit" value="Login" class="btn btn-primary">
+            </div>
 
+        </form>
+    </div>
+    <div class="col-md-4"></div>
 
-    <input type="submit" value="Enviar" />
-    </form>
+</div>
 </body>
 </html>
