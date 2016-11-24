@@ -1,16 +1,13 @@
 <!doctype html>
 <html lang="en">
-@section('htmlheader')
-    @include('layouts.partials.htmlheader')
-@endsection
+
+@include('layouts.partials.htmlheader')
 <body>
+@include('layouts.partials.sidebar')
+
 @yield('main-content')
-@section('sidebar')
-        @include('layouts.partials.sidebar')
-@endsection
-@yield('main-content')
+
+@include('layouts.partials.footer')
 </body>
-@section('footer')
-    @include('layouts.partials.footer')
-@endsection
+
 </html>
