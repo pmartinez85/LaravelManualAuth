@@ -20,8 +20,8 @@ Route::group(['middleware' => ['manualauth']], function () {
     Route::get('/tasques', function () {
         return view('tasques');
     });
-    Route::get('home', function () {
-        return 'Home!';
+    Route::get('/home', function () {
+        return "Estem a casa";
     });
 });
 Route::get('/login', function () {
@@ -30,5 +30,6 @@ Route::get('/login', function () {
 
 Route::get('/login', 'LoginController@showLoginForm');
 Route::post('/login', 'LoginController@login');
-+Route::get('/register', 'RegisterController@showRegisterForm');
-+Route::post('/register', 'RegisterController@register');
+Route::get('/register', 'RegisterController@showRegisterForm');
+Route::post('/register', 'RegisterController@register');
+Route::get('/logout', 'LoginController@logout');

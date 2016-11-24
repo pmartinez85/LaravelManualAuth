@@ -79,4 +79,11 @@ class LoginController extends Controller
             'email' => 'email|required', 'password' => 'required',
         ]);
     }
+
+    public function logout()
+    {
+        //tornem a la pantalla de login al "oblidar" la cookie
+        \Cookie::forget('user');
+        return redirect ('login');
+    }
 }
