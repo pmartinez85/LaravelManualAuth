@@ -1,6 +1,9 @@
 <?php
 
 
+/**
+ * Class ExampleTest
+ */
 class ExampleTest extends TestCase
 {
     /**

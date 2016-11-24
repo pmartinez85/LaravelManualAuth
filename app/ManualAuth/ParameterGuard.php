@@ -9,6 +9,10 @@ namespace App\ManualAuth;
 
 use Illuminate\Http\Request;
 
+/**
+ * Class ParameterGuard
+ * @package App\ManualAuth
+ */
 class ParameterGuard implements Guard
 {
     /**
@@ -26,6 +30,9 @@ class ParameterGuard implements Guard
         $this->request = $request;
     }
 
+    /**
+     * @return bool
+     */
     public function check()
     {
         if ($this->request->has('id')) {
@@ -35,11 +42,18 @@ class ParameterGuard implements Guard
         return false;
     }
 
+    /**
+     * @param array $credentials
+     * @return bool
+     */
     public function validate(array $credentials)
     {
         return true;
     }
 
+    /**
+     * @param $user
+     */
     public function setUser($user)
     {
         // TODO: Implement setUser() method.

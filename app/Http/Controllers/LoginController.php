@@ -29,12 +29,19 @@ class LoginController extends Controller
         $this->userprovider = $userprovider;
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showLoginForm()
     {
         return view('auth.login');
     }
 
     // DEPENDENCY INJECTION
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function login(Request $request)
     {
         $this->validateLogin($request);
@@ -66,6 +73,7 @@ class LoginController extends Controller
     /**
      * Get the login username to be used by the controller.
      *
+     * @param $request
      * @return string
      */
 

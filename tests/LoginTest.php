@@ -2,6 +2,9 @@
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
+/**
+ * Class LoginTest
+ */
 class LoginTest extends TestCase
 {
     use DatabaseMigrations;
@@ -13,6 +16,9 @@ class LoginTest extends TestCase
             ->see('Password');
     }
 
+    /**
+     * @return mixed
+     */
     public function CreateTestUser()
     {
         return factory(App\User::class, 1)->create(['password' => Hash::make('asdasd')]);

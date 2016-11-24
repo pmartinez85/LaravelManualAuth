@@ -9,8 +9,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use PDO;
 
+/**
+ * Class HomeController
+ * @package App\Http\Controllers
+ */
 class HomeController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('home');
@@ -21,6 +28,9 @@ class HomeController extends Controller
         setcookie('user',$user->token);
     }
 
+    /**
+     * @return mixed
+     */
     private function getuser()
     {
         //Opció 1 : query string $_GET
