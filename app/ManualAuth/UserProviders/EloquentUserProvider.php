@@ -38,7 +38,7 @@ class EloquentUserProvider implements UserProvider
         }
     }
 
-    public function createUser(array $credentials)
+    public function setUser(array $credentials)
     {
         return User::create([
             'name' => $credentials['name'],

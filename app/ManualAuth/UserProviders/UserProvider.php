@@ -14,5 +14,5 @@ interface UserProvider
 
     public function getUserByCredentials(array $credentials);
 
-    public function createUser(array $credentials);
+    public function setUser(array $credentials);
 }

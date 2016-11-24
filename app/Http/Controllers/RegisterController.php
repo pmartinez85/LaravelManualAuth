@@ -19,21 +19,35 @@ class RegisterController extends Controller
 
         $this->userprovider = $userprovider;
     }
+    public function showRegisterForm()
+    {
+        return view('auth.register');
+    }
 
     public function register(Request $request)
     {
         $this->validateRegister($request);
-        $credentials = $request->only(['name', 'email', 'password']);
-        $user = $this->userprovider->createUser($credentials);
-        $this->guard->setUser($user);
+//        $credentials = $request->only(['name', 'email', 'password']);
+//        $user = $this->userprovider->createUser($credentials);
+//        $this->guard->setUser($user);
+        $this->create($request);
         return redirect('home');
     }
 
     private function validateRegister($request)
     {
         $this->validate($request,[
-            'name'=> 'required', 'email' => 'email|required|unique:users', 'password' => 'required|confirmed',
+            'name'=> 'required',
+            'email' => 'email|required|unique:users',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required'
         ]);
+    }
+    private function create($request)
+    {
+        $credentials = $request->only('name','email','password');
+        $this->userprovider->setUser($credentials);
+        $this->guard->setUser($this->userprovider->getUserByCredentials($credentials));
     }
 
 

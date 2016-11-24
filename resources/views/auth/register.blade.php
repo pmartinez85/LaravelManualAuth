@@ -25,7 +25,7 @@
         <form action="/register" method="post">
             {{csrf_field()}}
             <div class="form-group">
-                Nom: <input type="text" name="nom" id="">
+                Nom: <input type="text" name="name" id="">
             </div>
             <div class="form-group">
                 Email: <input type="text" name="email" id="">

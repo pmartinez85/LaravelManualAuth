@@ -68,22 +68,19 @@ class LoginController extends Controller
      *
      * @return string
      */
-    public function username()
-    {
-        return $this->username;
-    }
 
     private function validateLogin($request)
     {
         $this->validate($request, [
-            'email' => 'email|required', 'password' => 'required',
+            'email' => 'email|required',
+            'password' => 'required',
         ]);
     }
 
-    public function logout()
-    {
-        //tornem a la pantalla de login al "oblidar" la cookie
-        \Cookie::forget('user');
-        return redirect ('login');
-    }
+//    public function logout()
+//    {
+//        //tornem a la pantalla de login al "oblidar" la cookie
+//        \Cookie::forget('user');
+//        return redirect ('login');
+//    }
 }
