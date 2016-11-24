@@ -23,9 +23,9 @@ class EloquentUserProvider implements UserProvider
         //SALTS
         if (Hash::check($credentials['password'], $user->password)) {
             return true;
+        }else{
+            return false;
         }
-
-        return false;
     }
 
     public function getUserByCredentials(array $credentials)
@@ -36,5 +36,16 @@ class EloquentUserProvider implements UserProvider
         } catch (\Exception $e) {
             return false;
         }
+    }
+
+    public function createUser(array $credentials)
+    {
+        return User::create([
+            'name' => $credentials['name'],
+            'email' => $credentials['email'],
+            'password' => bcrypt($credentials['password']),
+            'remember_token' => str_random(10),
+            'token' => bcrypt(str_random(10))
+        ]);
     }
 }
