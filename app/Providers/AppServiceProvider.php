@@ -16,13 +16,13 @@ class AppServiceProvider extends ServiceProvider
         //PAS 1 Middleware. com protegir pàgines?
 
 
-//Container
+        //Container
 
 
-
-$this->app->bind(
-    \App\ManualAuth\Guard::class, config('manualAuth.guard')
-);
+        //
+        //$this->app->bind(
+        //    \App\ManualAuth\Guard::class, config('manualAuth.guard')
+    //);
     }
 
     /**
