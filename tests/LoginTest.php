@@ -12,7 +12,7 @@ class LoginTest extends TestCase
     public function testLoginPageShowsLoginForm()
     {
         $this->visit('/login')
-            ->see('Usuari')
+            ->see('Email')
             ->see('Password');
     }
 
@@ -21,16 +21,16 @@ class LoginTest extends TestCase
      */
     public function CreateTestUser()
     {
-        return factory(App\User::class, 1)->create(['password' => Hash::make('asdasd')]);
+        return factory(\App\User::class,1)->create(['password'=> bcrypt('asdasd')]);
     }
 
     public function testLoginPostWithUserOk()
     {
-        $user = $this->createrestUser();
+        $user = $this->createTestUser();
         $this->visit('/login')
-            ->type($user->email, 'email')
+            ->type($user->name, 'email')
             ->type('asdasd', 'password')
-            ->press('login')
+            ->press('Login')
             ->seePageIs('/home');
     }
 
@@ -40,7 +40,7 @@ class LoginTest extends TestCase
             ->type('adadad@fasd.com', 'email')
             ->type('asdasd', 'password')
             //->check('terms')
-            ->press('login')
-            ->seePageIs('Username not exist');
+            ->press('Login')
+            ->seePageIs('/login');
     }
 }

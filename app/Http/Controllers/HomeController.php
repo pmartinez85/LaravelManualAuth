@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use PDO;
 
 /**
  * Class HomeController

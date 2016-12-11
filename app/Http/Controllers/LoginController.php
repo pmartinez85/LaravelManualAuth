@@ -6,6 +6,7 @@ use App\ManualAuth\Guard;
 use App\ManualAuth\UserProviders\UserProvider;
 //use App\User;
 //use Hash;
+use Cookie;
 use Illuminate\Http\Request;
 use Session;
 
@@ -85,10 +86,10 @@ class LoginController extends Controller
         ]);
     }
 
-//    public function logout()
-//    {
-//        //tornem a la pantalla de login al "oblidar" la cookie
-//        \Cookie::forget('user');
-//        return redirect ('login');
-//    }
+    public function logout()
+    {
+        //tornem a la pantalla de login al "oblidar" la cookie
+        \Cookie::forget('user');
+        return redirect ('login')->withCookie(Cookie::forget('user'));
+    }
 }
