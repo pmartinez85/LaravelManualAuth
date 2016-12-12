@@ -39,6 +39,11 @@ $ llum serve
 
 $ php artisan serve
 
+## Tests
+
+Els tests d'aquest projecte es basen en comprobar que el sistema de logueig funciona correctament. Per executar els tests usarem la següent comanda:
+
+$ phpunit
 
 
 ## Contributing
