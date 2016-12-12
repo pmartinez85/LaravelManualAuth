@@ -31,10 +31,10 @@
                 Email: <input type="text" name="email" id="">
             </div>
             <div class="form-group">
-                Password: <input type="text" name="password" id="">
+                Password: <input type="password" name="password" id="">
             </div>
             <div class="form-group">
-                Repeat password: <input type="text" name="password_confirmation" id="">
+                Repeat password: <input type="password" name="password_confirmation" id="">
             </div>
             <div class="row text-center">
                 <input type="submit" value="Register" class="btn btn-primary">
