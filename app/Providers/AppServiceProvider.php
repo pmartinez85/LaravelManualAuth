@@ -5,8 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class AppServiceProvider
- * @package App\Providers
+ * Class AppServiceProvider.
  */
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,9 +18,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //PAS 1 Middleware. com protegir pàgines?
 
-
         //Container
-
 
         //
         //$this->app->bind(

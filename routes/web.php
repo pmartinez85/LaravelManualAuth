@@ -1,6 +1,6 @@
 <?php
 
-use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,13 +16,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::group(['middleware' => ['manualauth']], function () {
     Route::get('/tasques', function () {
         return view('tasques');
     });
     Route::get('/home', function () {
-        return "Estem a casa";
+        return 'Estem a casa';
     });
 });
 Route::get('/login', function () {

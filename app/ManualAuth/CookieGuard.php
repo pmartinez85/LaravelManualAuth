@@ -5,8 +5,7 @@ namespace App\ManualAuth;
 use App\ManualAuth\UserProviders\UserProvider;
 
 /**
- * Class CookieGuard
- * @package App\ManualAuth
+ * Class CookieGuard.
  */
 class CookieGuard implements Guard
 {
@@ -32,6 +31,7 @@ class CookieGuard implements Guard
 
     /**
      * @param array $credentials
+     *
      * @return mixed
      */
     public function validate(array $credentials)

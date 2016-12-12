@@ -2,7 +2,7 @@
 
 
 /**
- * Class ExampleTest
+ * Class ExampleTest.
  */
 class ExampleTest extends TestCase
 {

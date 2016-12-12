@@ -5,11 +5,11 @@
  * Date: 25/10/16
  * Time: 20:33.
  */
+
 namespace App\ManualAuth;
 
 /**
- * Interface Guard
- * @package App\ManualAuth
+ * Interface Guard.
  */
 interface Guard
 {
@@ -17,12 +17,14 @@ interface Guard
 
     /**
      * @param array $credentials
+     *
      * @return mixed
      */
     public function validate(array $credentials);
 
     /**
      * @param $user
+     *
      * @return mixed
      */
     public function setUser($user);

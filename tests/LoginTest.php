@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 /**
- * Class LoginTest
+ * Class LoginTest.
  */
 class LoginTest extends TestCase
 {
@@ -21,7 +21,7 @@ class LoginTest extends TestCase
      */
     public function CreateTestUser()
     {
-        return factory(\App\User::class,1)->create(['password'=> bcrypt('asdasd')]);
+        return factory(\App\User::class, 1)->create(['password'=> bcrypt('asdasd')]);
     }
 
     public function testLoginPostWithUserOk()
