@@ -12,18 +12,21 @@ interface UserProvider
 {
     /**
      * @param array $credentials
+     *
      * @return mixed
      */
     public function validate(array $credentials);
 
     /**
      * @param array $credentials
+     *
      * @return mixed
      */
     public function getUserByCredentials(array $credentials);
 
     /**
      * @param array $credentials
+     *
      * @return mixed
      */
     public function setUser(array $credentials);

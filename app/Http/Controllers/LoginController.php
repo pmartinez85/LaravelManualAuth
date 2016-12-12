@@ -39,8 +39,10 @@ class LoginController extends Controller
     }
 
     // DEPENDENCY INJECTION
+
     /**
      * @param Request $request
+     *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function login(Request $request)
@@ -75,13 +77,13 @@ class LoginController extends Controller
      * Get the login username to be used by the controller.
      *
      * @param $request
+     *
      * @return string
      */
-
     private function validateLogin($request)
     {
         $this->validate($request, [
-            'email' => 'email|required',
+            'email'    => 'email|required',
             'password' => 'required',
         ]);
     }
@@ -90,6 +92,7 @@ class LoginController extends Controller
     {
         //tornem a la pantalla de login al "oblidar" la cookie
         \Cookie::forget('user');
-        return redirect ('login')->withCookie(Cookie::forget('user'));
+
+        return redirect('login')->withCookie(Cookie::forget('user'));
     }
 }

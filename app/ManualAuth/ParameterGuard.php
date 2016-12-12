@@ -5,13 +5,13 @@
  * Date: 25/10/16
  * Time: 20:02.
  */
+
 namespace App\ManualAuth;
 
 use Illuminate\Http\Request;
 
 /**
- * Class ParameterGuard
- * @package App\ManualAuth
+ * Class ParameterGuard.
  */
 class ParameterGuard implements Guard
 {
@@ -44,6 +44,7 @@ class ParameterGuard implements Guard
 
     /**
      * @param array $credentials
+     *
      * @return bool
      */
     public function validate(array $credentials)

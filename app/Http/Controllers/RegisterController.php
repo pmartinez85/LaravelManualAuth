@@ -3,24 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\ManualAuth\Guard;
-use App\Http\Requests;
 use App\ManualAuth\UserProviders\UserProvider;
 use Illuminate\Http\Request;
 
 /**
- * Class RegisterController
- * @package App\Http\Controllers
+ * Class RegisterController.
  */
 class RegisterController extends Controller
 {
-
     protected $userprovider;
     protected $guard;
 
     /**
      * RegisterController constructor.
+     *
      * @param UserProvider $userprovider
-     * @param Guard $guard
+     * @param Guard        $guard
      */
     public function __construct(UserProvider $userprovider, Guard $guard)
     {
@@ -39,6 +37,7 @@ class RegisterController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function register(Request $request)
@@ -48,6 +47,7 @@ class RegisterController extends Controller
 //        $user = $this->userprovider->createUser($credentials);
 //        $this->guard->setUser($user);
         $this->create($request);
+
         return redirect('home');
     }
 
@@ -56,11 +56,11 @@ class RegisterController extends Controller
      */
     private function validateRegister($request)
     {
-        $this->validate($request,[
-            'name'=> 'required',
-            'email' => 'email|required|unique:users',
-            'password' => 'required|confirmed',
-            'password_confirmation' => 'required'
+        $this->validate($request, [
+            'name'                  => 'required',
+            'email'                 => 'email|required|unique:users',
+            'password'              => 'required|confirmed',
+            'password_confirmation' => 'required',
         ]);
     }
 
@@ -69,10 +69,8 @@ class RegisterController extends Controller
      */
     private function create($request)
     {
-        $credentials = $request->only('name','email','password');
+        $credentials = $request->only('name', 'email', 'password');
         $this->userprovider->setUser($credentials);
         $this->guard->setUser($this->userprovider->getUserByCredentials($credentials));
     }
-
-
 }
