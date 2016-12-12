@@ -19,12 +19,14 @@ $ git clone git@github.com:pmartinez85/LaravelManualAuth.git
 Acte seguit instal·larem les dependències:
 
 $ composer install
+
 $ npm install
 
 
 Copiarem l'arxiu d'entorn i generarem la clau del artisan
 
 $ cp .env.example .env
+
 $ php artisan key:generate
 
 Ara omplirem la nostra base de dades:
