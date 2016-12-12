@@ -6,13 +6,38 @@
 [![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Introducció
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Aquest repositori intenta ser un manual sobre Autenticació, emulant, d'alguna manera, la forma en que ho fa el Laravel. Es basa en una pàgina de registre, una de Login i una Home per quan s'accedeix correctament.
 
-## Official Documentation
+## Instal·lació
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+Per instal·lar el primer que farem serà clonar el repositori amb
+
+$ git clone git@github.com:pmartinez85/LaravelManualAuth.git
+
+Acte seguit instal·larem les dependències:
+
+$ composer install
+$ npm install
+
+
+Copiarem l'arxiu d'entorn i generarem la clau del artisan
+
+$ cp .env.example .env
+$ php artisan key:generate
+
+Ara omplirem la nostra base de dades:
+
+$ php artisan migrate --seed
+
+I per últim usarem unes comandes per veure el nostre projecte en un servidor local:
+
+$ llum serve
+
+$ php artisan serve
+
+
 
 ## Contributing
 
